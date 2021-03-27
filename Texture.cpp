@@ -77,7 +77,7 @@ bool Texture::unload()
 
 //void Texture::render(SDL_Renderer* renderer, int x, int y, SDL_Rect* clip_rect)
 //void render(int x, int y, SDL_Rect* clip_rect = NULL, double angle = 0.0, SDL_Point* center = NULL, SDL_RendererFlip  flip = SDL_FLIP_NONE)
-void Texture::render(int x, int y, SDL_Rect * clip_rect, double angle, SDL_Point * center, SDL_RendererFlip flip)
+void Texture::render(int x, int y, SDL_Rect * clip_rect, double zoom, double angle, SDL_Point * center, SDL_RendererFlip flip)
 {
 	//Set rendering space and render to screen
 	SDL_Rect renderQuad = { x, y, _width, _height };
@@ -88,6 +88,8 @@ void Texture::render(int x, int y, SDL_Rect * clip_rect, double angle, SDL_Point
 		renderQuad.w = clip_rect->w;
 		renderQuad.h = clip_rect->h;
 	}
+	renderQuad.w = int(zoom * renderQuad.w);
+	renderQuad.h = int(zoom * renderQuad.h);
 
 	//Render to screen
 	if (angle == 0.0 && flip == SDL_FLIP_NONE)

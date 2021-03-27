@@ -5,7 +5,6 @@ Player::Player()
 	posX = 0;
 	posY = 0;
 	_isLoaded = false;
-	angle = 0.0;
 }
 
 Player::~Player()
@@ -35,6 +34,14 @@ void Player::update(float dt)
 	if (posY > SCREEN_HEIGHT)
 		posY = -50;
 	_sprite.setPosition(posX, posY);
-	angle = angle + 0.1*double(dt);
+	double angle = _sprite.getAngle();
+	angle = angle + 0.1 * dt;
+	_sprite.setAngle(angle);
+	double zoom = _sprite.getZoom();
+	if (zoom < 4)
+		zoom = zoom + 0.001 * dt;
+	else
+		zoom = 0.3;
+	_sprite.setZoom(zoom);
 	_sprite.setAngle(angle);
 }

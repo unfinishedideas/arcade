@@ -15,5 +15,5 @@ private:
 	Sprite _sprite;
 	int posX, posY;
 	bool _isLoaded;
-	double angle;
+	
 };

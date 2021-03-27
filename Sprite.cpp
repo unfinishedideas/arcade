@@ -8,6 +8,7 @@ Sprite::Sprite()
 	_textureRect = { 0,0,0,0 };
 	_texture = NULL;
 	_angle = 0.0;
+	_zoom = 1.0;
 }
 
 Sprite::~Sprite()
@@ -43,9 +44,23 @@ void Sprite::setAngle(double angle)
 	_angle = angle;
 }
 
+void Sprite::setZoom(double zoom)
+{
+	_zoom = zoom;
+}
+
+double Sprite::getAngle()
+{
+	return _angle;
+}
+
+double Sprite::getZoom()
+{
+	return _zoom;
+}
 void Sprite::render()
 {
 	if (!_isLoaded)
 		return;
-	_texture->render(posX, posY, &_textureRect, _angle);
+	_texture->render(posX, posY, &_textureRect, _zoom,_angle);
 }
