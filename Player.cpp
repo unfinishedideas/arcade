@@ -2,8 +2,8 @@
 
 Player::Player() : VisibleObject("player")
 {
-	posX = 0;
-	posY = 0;
+	posX = 0.f;
+	posY = 0.f;
 	velX = 0.f;
 	velY = 0.f;
 	_isLoaded = false;
@@ -54,8 +54,8 @@ void Player::processInput(const Uint8* currentKeyStates)
 }
 void Player::update(float dt)
 {
-        posX = int(posX + dt*velX);
-        posY = int(posY + dt*velY);
+        posX = posX + dt*velX;
+        posY = posY + dt*velY;
         _sprite.setPosition(posX, posY);
         velX = 0;
         velY = 0;

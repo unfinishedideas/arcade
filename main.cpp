@@ -22,8 +22,9 @@ int main(int argc, char* args[])
 	test.load(path);
 	
 	Player joe;
-	joe.load(&test);
+	//joe.load(&test);
 	VisibleObject* vis = &joe;
+	vis->load(&test);
 	// <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY 
 	//While application is running
 	float prevTime = float(SDL_GetTicks());

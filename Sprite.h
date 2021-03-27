@@ -9,7 +9,7 @@ public:
 	~Sprite();
 	void setTexture(Texture *texture);
 	void setTextureRect(SDL_Rect rect);
-	void setPosition(int x, int y);
+	void setPosition(float x, float y);
 	void setAngle(double angle);
 	void setZoom(double zoom);
 	void setFlip(SDL_RendererFlip flip);

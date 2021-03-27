@@ -16,6 +16,11 @@ VisibleObject::~VisibleObject()
 
 void VisibleObject::render()
 {
+	
+}
+
+void VisibleObject::load(Texture* text)
+{
 
 }
 
@@ -23,6 +28,7 @@ void VisibleObject::processInput(const Uint8* currentKeyStates)
 {
 
 }
+
 
 void VisibleObject::update(float dt)
 {

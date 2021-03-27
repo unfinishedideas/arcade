@@ -14,7 +14,7 @@ public:
 	void render();
 private:
 	Sprite _sprite;
-	int posX, posY;
+	float posX, posY;
 	float velX, velY;
 	bool _isLoaded;
 	
