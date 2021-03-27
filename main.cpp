@@ -42,6 +42,8 @@ int main(int argc, char* args[])
 		//Clear screen
 		SDL_SetRenderDrawColor(renderer, 0x0, 0x0, 0x0, 0xFF);
 		SDL_RenderClear(renderer);
+		const Uint8* currentKeyStates = SDL_GetKeyboardState(NULL);
+		vis->processInput(currentKeyStates);
 		float currTime = float(SDL_GetTicks());
 		vis->update(currTime - prevTime);
 		prevTime = currTime;
