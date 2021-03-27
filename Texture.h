@@ -4,7 +4,7 @@
 class Texture
 {
 	public:
-		Texture(SDL_Renderer * renderer);
+		Texture(SDL_Renderer * trenderer);
 		~Texture();
 		bool load(std::string file_path);
 		bool unload();

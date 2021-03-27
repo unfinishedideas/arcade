@@ -18,36 +18,7 @@ Texture::~Texture()
 //bool Texture::load(SDL_Renderer * renderer, std::string file_path)
 bool Texture::load(std::string file_path)
 {
-	//bool success = true;		// used to determine success of function
-	//SDL_Surface * image;		// used to load the image
-	//
-	//// attempt image load
-	//image = IMG_Load(file_path);
-
-	//if (!image)
-	//{
-	//	success = false;
-	//	std::cout << "IMG_Load failed!";
-	//}
-	//else
-	//{
-	//	//Set the chroma key value
-	//	//SDL_SetColorKey(image, SDL_TRUE, CHROMA_VALUE);
-	//}
-	//
-	//if (success)
-	//{
-	//_texture = SDL_CreateTextureFromSurface(renderer, image);
-
-	//	if (_texture == NULL)
-	//		success = false;
-	//	else
-	//	{
-	//		std::cout << "success";
-	//	}
-	//}
-
-	//return success;
+	
 
 	//Get rid of preexisting texture
 	unload();

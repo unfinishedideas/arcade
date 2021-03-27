@@ -2,13 +2,12 @@
 #include "Sprite.h"
 
 bool init(SDL_Window *& window, SDL_Renderer *& renderer);
-void clean_up(SDL_Window *& window, SDL_Renderer *& renderer);
+void clean_up(SDL_Window * window, SDL_Renderer * renderer);
 	
 
 int main(int argc, char* args[])
 {
-	//SDL_Surface* surface;
-	//SDL_Texture* texture;
+	
 	SDL_Window* window;
 	SDL_Renderer* renderer;
 	SDL_Event e;
@@ -22,10 +21,9 @@ int main(int argc, char* args[])
 	test.load(path);
 	Sprite sprite;
 	sprite.setTexture(&test);
-	SDL_Rect rect{ 0,0,50,50 };
 	sprite.setTextureRect(SDL_Rect{ 0,0,50,50 });
 	sprite.setPosition(100, 100);
-	//Texture test2 = test;
+
 	// <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY 
 	//While application is running
 	while (!quit)
@@ -44,7 +42,7 @@ int main(int argc, char* args[])
 		SDL_SetRenderDrawColor(renderer, 0x0, 0x0, 0x0, 0xFF);
 		SDL_RenderClear(renderer);
 		
-	    //test2.render(0, 0);
+	   
 		sprite.render();
 		//Update screen
 		SDL_RenderPresent(renderer);
@@ -112,7 +110,7 @@ bool init(SDL_Window*& window, SDL_Renderer*& renderer)
 	return success;
 }
 
-void clean_up(SDL_Window*& window, SDL_Renderer*& renderer)
+void clean_up(SDL_Window* window, SDL_Renderer* renderer)
 {
 	//Free loaded images
 	//gSpriteSheetTexture.free();
