@@ -3,11 +3,13 @@
 VisibleObject::VisibleObject()
 {
 	_id = "";
+	_isDead = false;
 }
 
 VisibleObject::VisibleObject(std::string id)
 {
 	_id = id;
+	_isDead = false;
 }
 VisibleObject::~VisibleObject()
 {
@@ -43,4 +45,14 @@ std::string VisibleObject::getID()
 void VisibleObject::setID(std::string id)
 {
 	_id = id;
+}
+
+bool VisibleObject::isDead()
+{
+	return _isDead;
+}
+
+void VisibleObject::setDead()
+{
+	_isDead = true;
 }

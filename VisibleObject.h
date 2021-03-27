@@ -14,6 +14,9 @@ public:
 	virtual void update(float dt);
 	std::string getID();
 	void setID(std::string id);
+	void setDead();
+	bool isDead();
 private:
 	std::string _id;
+	bool _isDead;
 };

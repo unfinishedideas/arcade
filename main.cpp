@@ -2,6 +2,9 @@
 #include "Sprite.h"
 #include "Player.h"
 
+const float FPS = 60; //frames per second
+
+
 bool init(SDL_Window *& window, SDL_Renderer *& renderer);
 void clean_up(SDL_Window * window, SDL_Renderer * renderer);
 	
@@ -46,8 +49,14 @@ int main(int argc, char* args[])
 		const Uint8* currentKeyStates = SDL_GetKeyboardState(NULL);
 		vis->processInput(currentKeyStates);
 		float currTime = float(SDL_GetTicks());
+		if (currTime - prevTime < 0)
+			continue;
 		vis->update(currTime - prevTime);
+		float t = currTime - prevTime;
 		prevTime = currTime;
+		int sleepTime = int(1000/FPS- t); //cap framerate at FPS 
+		if (sleepTime > 0)
+			SDL_Delay(sleepTime);
 		vis->render();
 		
 		//Update screen
@@ -82,7 +91,7 @@ bool init(SDL_Window*& window, SDL_Renderer*& renderer)
 		}
 
 		//Create window
-		window = SDL_CreateWindow("SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+		window = SDL_CreateWindow("Arcade", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
 		if (window == NULL)
 		{
 			printf("Window could not be created! SDL Error: %s\n", SDL_GetError());
@@ -91,7 +100,8 @@ bool init(SDL_Window*& window, SDL_Renderer*& renderer)
 		else
 		{
 			//Create vsynced renderer for window
-			renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+			//renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+			renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 			if (renderer == NULL)
 			{
 				printf("Renderer could not be created! SDL Error: %s\n", SDL_GetError());
