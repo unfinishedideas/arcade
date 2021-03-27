@@ -49,6 +49,11 @@ void Sprite::setZoom(double zoom)
 	_zoom = zoom;
 }
 
+void Sprite::setFlip(SDL_RendererFlip flip)
+{
+	_flip = flip;
+}
+
 double Sprite::getAngle()
 {
 	return _angle;
@@ -58,9 +63,15 @@ double Sprite::getZoom()
 {
 	return _zoom;
 }
+
+SDL_RendererFlip Sprite::getFlip()
+{
+	return _flip;
+}
+
 void Sprite::render()
 {
 	if (!_isLoaded)
 		return;
-	_texture->render(posX, posY, &_textureRect, _zoom,_angle);
+	_texture->render(posX, posY, &_textureRect, _zoom,_angle, NULL, _flip);
 }

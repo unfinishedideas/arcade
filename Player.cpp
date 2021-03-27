@@ -16,6 +16,7 @@ void Player::load(Texture* text)
 	_sprite.setTexture(text);
 	_sprite.setTextureRect(SDL_Rect{ 0,0,50,50 });
 	_sprite.setPosition(posX, posY);
+	_sprite.setFlip(SDL_FLIP_HORIZONTAL);
 	_isLoaded = true;
 }
 
