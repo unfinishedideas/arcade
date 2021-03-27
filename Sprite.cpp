@@ -17,13 +17,13 @@ Sprite::~Sprite()
 	_texture = NULL;
 }
 
-bool Sprite::load(Texture * text)
+void Sprite::setTexture(Texture * text)
 {
 	_texture = text;
 	_isLoaded = true;
 	_textureRect.w = _texture->get_width();
 	_textureRect.h = _texture->get_height();
-	return true;
+	return;
 }
 
 void Sprite::setTextureRect(SDL_Rect rect)

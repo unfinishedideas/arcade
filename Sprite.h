@@ -7,7 +7,7 @@ class Sprite
 public:
 	Sprite();
 	~Sprite();
-	bool load(Texture *texture);
+	void setTexture(Texture *texture);
 	void setTextureRect(SDL_Rect rect);
 	void setPosition(int x, int y);
 	void render();

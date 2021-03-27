@@ -21,10 +21,9 @@ int main(int argc, char* args[])
 	std::string path = "test.png";
 	test.load(path);
 	Sprite sprite;
-	if (!sprite.load(&test))
-		return 0;
+	sprite.setTexture(&test);
 	SDL_Rect rect{ 0,0,50,50 };
-	sprite.setTextureRect(rect);
+	sprite.setTextureRect(SDL_Rect{ 0,0,50,50 });
 	sprite.setPosition(100, 100);
 	//Texture test2 = test;
 	// <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY 
