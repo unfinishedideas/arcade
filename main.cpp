@@ -1,5 +1,6 @@
 #include "imports.h"
 #include "Sprite.h"
+#include "Player.h"
 
 bool init(SDL_Window *& window, SDL_Renderer *& renderer);
 void clean_up(SDL_Window * window, SDL_Renderer * renderer);
@@ -19,11 +20,13 @@ int main(int argc, char* args[])
 	Texture test(renderer);
 	std::string path = "test.png";
 	test.load(path);
-	Sprite sprite;
-	sprite.setTexture(&test);
-	sprite.setTextureRect(SDL_Rect{ 0,0,50,50 });
-	sprite.setPosition(100, 100);
-
+	//Sprite sprite;
+	//sprite.setTexture(&test);
+	//sprite.setTextureRect(SDL_Rect{ 0,0,50,50 });
+	//sprite.setPosition(100, 100);
+	Player joe;
+	joe.load(&test);
+	VisibleObject* vis = &joe;
 	// <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY 
 	//While application is running
 	while (!quit)
@@ -42,8 +45,8 @@ int main(int argc, char* args[])
 		SDL_SetRenderDrawColor(renderer, 0x0, 0x0, 0x0, 0xFF);
 		SDL_RenderClear(renderer);
 		
-	   
-		sprite.render();
+		vis->render();
+		
 		//Update screen
 		SDL_RenderPresent(renderer);
 
