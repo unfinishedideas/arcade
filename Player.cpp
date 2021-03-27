@@ -5,6 +5,7 @@ Player::Player()
 	posX = 0;
 	posY = 0;
 	_isLoaded = false;
+	angle = 0.0;
 }
 
 Player::~Player()
@@ -27,11 +28,13 @@ void Player::render()
 
 void Player::update(float dt)
 {
-	posX = int(float(posX + .223*dt));
-	posY = int(float(posY + .34 * dt));
+	posX = int(float(posX + .123*dt));
+	posY = int(float(posY + .24 * dt));
 	if (posX > SCREEN_WIDTH)
 		posX = -50;
 	if (posY > SCREEN_HEIGHT)
 		posY = -50;
 	_sprite.setPosition(posX, posY);
+	angle = angle + 0.1*double(dt);
+	_sprite.setAngle(angle);
 }

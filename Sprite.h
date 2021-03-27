@@ -10,10 +10,12 @@ public:
 	void setTexture(Texture *texture);
 	void setTextureRect(SDL_Rect rect);
 	void setPosition(int x, int y);
+	void setAngle(double angle);
 	void render();
 private:
 	Texture * _texture;
 	SDL_Rect _textureRect;
 	int posX, posY;
 	bool _isLoaded;
+	double _angle;
 };

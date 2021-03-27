@@ -8,7 +8,7 @@ class Texture
 		~Texture();
 		bool load(std::string file_path);
 		bool unload();
-		void render(int x, int y, SDL_Rect* clip_rect = NULL);
+		void render(int x, int y, SDL_Rect* clip_rect = NULL, double angle = 0.0, SDL_Point * center = NULL, SDL_RendererFlip = SDL_FLIP_NONE);
 		int get_width();
 		int get_height();
 	private:

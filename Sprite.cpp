@@ -7,6 +7,7 @@ Sprite::Sprite()
 	_isLoaded = false;
 	_textureRect = { 0,0,0,0 };
 	_texture = NULL;
+	_angle = 0.0;
 }
 
 Sprite::~Sprite()
@@ -37,9 +38,14 @@ void Sprite::setPosition(int x, int y)
 	posY = y;
 }
 
+void Sprite::setAngle(double angle)
+{
+	_angle = angle;
+}
+
 void Sprite::render()
 {
 	if (!_isLoaded)
 		return;
-	_texture->render(posX, posY, &_textureRect);
+	_texture->render(posX, posY, &_textureRect, _angle);
 }
