@@ -11,10 +11,7 @@ VisibleObject::VisibleObject(std::string id)
 	_id = id;
 	_isDead = false;
 }
-VisibleObject::~VisibleObject()
-{
 
-}
 
 void VisibleObject::render()
 {

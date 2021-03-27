@@ -1,8 +1,10 @@
 #include "imports.h"
 #include "Sprite.h"
 #include "Player.h"
+#include "ResourceManager.h"
 
 const float FPS = 60; //frames per second
+const int millisecondsPerFrame = int(1000.f / FPS);
 
 
 bool init(SDL_Window *& window, SDL_Renderer *& renderer);
@@ -24,13 +26,15 @@ int main(int argc, char* args[])
 	std::string path = "test.png";
 	test.load(path);
 	
-	Player joe;
-	//joe.load(&test);
-	VisibleObject* vis = &joe;
-	vis->load(&test);
+	Player * joe = new Player;
+	//VisibleObject* vis = joe;
+	
+	ResourceManager manager;
+	manager.add(joe);
+	manager.load(&test);
 	// <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY 
 	//While application is running
-	float prevTime = float(SDL_GetTicks());
+	int prevTime = SDL_GetTicks();
 	while (!quit)
 	{
 		//Handle events on queue
@@ -47,18 +51,22 @@ int main(int argc, char* args[])
 		SDL_SetRenderDrawColor(renderer, 0x0, 0x0, 0x0, 0xFF);
 		SDL_RenderClear(renderer);
 		const Uint8* currentKeyStates = SDL_GetKeyboardState(NULL);
-		vis->processInput(currentKeyStates);
-		float currTime = float(SDL_GetTicks());
-		if (currTime - prevTime < 0)
+	
+		manager.processInput(currentKeyStates);
+
+		int currTime = SDL_GetTicks();
+		if (currTime - prevTime < 0) //if time overflows, continue
 			continue;
-		vis->update(currTime - prevTime);
-		float t = currTime - prevTime;
+		int t = currTime - prevTime;
+	
+		manager.update(float(t));
+
 		prevTime = currTime;
-		int sleepTime = int(1000/FPS- t); //cap framerate at FPS 
+		int sleepTime = millisecondsPerFrame-t; //if millise
 		if (sleepTime > 0)
 			SDL_Delay(sleepTime);
-		vis->render();
-		
+
+		manager.render();
 		//Update screen
 		SDL_RenderPresent(renderer);
 
@@ -110,7 +118,7 @@ bool init(SDL_Window*& window, SDL_Renderer*& renderer)
 			else
 			{
 				//Initialize renderer color
-				SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
+				SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0xFF);
 
 				//Initialize PNG loading
 				int imgFlags = IMG_INIT_PNG;

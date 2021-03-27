@@ -11,6 +11,7 @@ Player::Player() : VisibleObject("player")
 
 Player::~Player()
 {
+    std::cout << "Deleted player!";
 }
 
 void Player::load(Texture* text)
@@ -59,5 +60,6 @@ void Player::update(float dt)
         _sprite.setPosition(posX, posY);
         velX = 0;
         velY = 0;
-   
+        if (posX > 400)
+            this->setDead();
 }

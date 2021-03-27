@@ -7,7 +7,7 @@ class VisibleObject
 public:
 	VisibleObject();
 	VisibleObject(std::string id);
-	~VisibleObject();
+	virtual ~VisibleObject() {}
 	virtual void render();
 	virtual void load(Texture* text);
 	virtual void processInput(const Uint8* currentKeyStates);

@@ -9,6 +9,7 @@ Sprite::Sprite()
 	_texture = NULL;
 	_angle = 0.0;
 	_zoom = 1.0;
+	_flip = SDL_FLIP_NONE;
 }
 
 Sprite::~Sprite()
