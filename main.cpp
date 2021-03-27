@@ -20,15 +20,13 @@ int main(int argc, char* args[])
 	Texture test(renderer);
 	std::string path = "test.png";
 	test.load(path);
-	//Sprite sprite;
-	//sprite.setTexture(&test);
-	//sprite.setTextureRect(SDL_Rect{ 0,0,50,50 });
-	//sprite.setPosition(100, 100);
+	
 	Player joe;
 	joe.load(&test);
 	VisibleObject* vis = &joe;
 	// <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY 
 	//While application is running
+	float prevTime = float(SDL_GetTicks());
 	while (!quit)
 	{
 		//Handle events on queue
@@ -44,7 +42,9 @@ int main(int argc, char* args[])
 		//Clear screen
 		SDL_SetRenderDrawColor(renderer, 0x0, 0x0, 0x0, 0xFF);
 		SDL_RenderClear(renderer);
-		
+		float currTime = float(SDL_GetTicks());
+		vis->update(currTime - prevTime);
+		prevTime = currTime;
 		vis->render();
 		
 		//Update screen

@@ -8,7 +8,7 @@ class Player : public VisibleObject
 public:
 	Player();
 	~Player();
-	
+	void update(float dt);
 	void load(Texture* text);
 	void render();
 private:
