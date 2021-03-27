@@ -53,6 +53,7 @@ bool Texture::load(std::string file_path)
 	unload();
 
 	//The final texture
+	
 	SDL_Texture* newTexture = NULL;
 
 	//Load image at specified path
@@ -131,3 +132,5 @@ int Texture::get_height()
 {
 	return _height;
 }
+
+//
