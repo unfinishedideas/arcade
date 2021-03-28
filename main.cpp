@@ -27,7 +27,7 @@ int main(int argc, char* args[])
 	test.load(path);
 	
 	Player * joe = new Player;
-	//VisibleObject* vis = joe;
+
 	
 	ResourceManager manager;
 	manager.add(joe);

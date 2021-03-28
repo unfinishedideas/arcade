@@ -7,7 +7,12 @@ ResourceManager::ResourceManager()
 
 ResourceManager::~ResourceManager()
 {
-
+	//delete all memory
+	for (unsigned int i = 0; i < _objects.size(); ++i)
+	{
+		delete _objects[i];
+		_objects[i] = NULL;
+	}
 }
 
 void ResourceManager::add(VisibleObject* vis)
