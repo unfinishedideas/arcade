@@ -22,18 +22,18 @@ int main(int argc, char* args[])
 
 	init(window, renderer);
 
-	Texture test(renderer);
+	Texture texture(renderer);
 	std::string path = "assets/sprites.png";
-	test.load(path);
+	texture.load(path);
 	
 	//Player * joe = new Player;
 
 	
 	ResourceManager manager;
-	manager.load(&test);
+	manager.load(&texture);
 	manager.add("player");
 	
-	bool addNew = true;
+	
 	// <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY 
 	//While application is running
 	int prevTime = SDL_GetTicks();

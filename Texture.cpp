@@ -99,6 +99,21 @@ void Texture::render(int x, int y, SDL_Rect * clip_rect, double zoom, double ang
 	return;
 }
 
+void Texture::setBlendMode(SDL_BlendMode blend)
+{
+	SDL_SetTextureBlendMode(_texture, blend);
+}
+
+void Texture::setAlpha(Uint8 alpha)
+{
+	SDL_SetTextureAlphaMod(_texture, alpha);
+}
+
+void Texture::setColor(Uint8 red, Uint8 green, Uint8 blue)
+{
+	SDL_SetTextureColorMod(_texture, red, green, blue);
+}
+
 int Texture::get_width()
 {
 	return _width;

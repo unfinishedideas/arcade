@@ -20,6 +20,7 @@ void Player::load(Texture* text)
 	_sprite.setTexture(text);
 	_sprite.setTextureRect(SDL_Rect{ 0,0,140,140 });
 	_sprite.setPosition(posX, posY);
+    _sprite.setColor(0,255,0);
 	_isLoaded = true;
 }
 
