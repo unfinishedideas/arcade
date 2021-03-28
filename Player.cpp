@@ -18,9 +18,9 @@ Player::~Player()
 void Player::load(Texture* text)
 {
 	_sprite.setTexture(text);
-	_sprite.setTextureRect(SDL_Rect{ 0,0,140,140 });
+	_sprite.setTextureRect(SDL_Rect{ 0,0,95,160 });
 	_sprite.setPosition(posX, posY);
-    _sprite.setColor(0,255,0);
+    _sprite.setColor(255,255,0);
 	_isLoaded = true;
 }
 
@@ -62,12 +62,12 @@ void Player::update(float dt)
         _sprite.setPosition(posX, posY);
         velX = 0;
         velY = 0;
-        frameTime = frameTime + dt;
-        if (frameTime > 100)
+       frameTime = frameTime + dt;
+        if (frameTime > 800)
         {
             SDL_Rect rect = _sprite.getTextureRect();
-            rect.x += 140;
-            if (rect.x > 140 * 7)
+            rect.x +=95;
+            if (rect.x > 95 * 7)
                 rect.x = 0;
             _sprite.setTextureRect(rect);
             frameTime = 0;
