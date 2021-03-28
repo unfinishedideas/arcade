@@ -34,7 +34,7 @@ int main(int argc, char* args[])
 	manager.add("player");
 	
 	
-	// <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY 
+	
 	//While application is running
 	int prevTime = SDL_GetTicks();
 	while (!quit)
@@ -73,7 +73,7 @@ int main(int argc, char* args[])
 		SDL_RenderPresent(renderer);
 
 	}
-	// <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY 
+
 
 	// Deallocate SDL
 	clean_up(window, renderer);

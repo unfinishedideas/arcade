@@ -8,7 +8,7 @@ ResourceManager::ResourceManager()
 
 ResourceManager::~ResourceManager()
 {
-	//delete all memory
+	//delete memory
 	for (unsigned int i = 0; i < _objects.size(); ++i)
 	{
 		delete _objects[i];
@@ -28,6 +28,11 @@ void ResourceManager::add(std::string objName)
 	}
 }
 
+void ResourceManager::add(VisibleObject* obj)
+{
+	_objects.push_back(obj);
+}
+
 void ResourceManager::load(Texture * text)
 {
 	_texture = text;
@@ -43,10 +48,10 @@ void ResourceManager::processInput(const Uint8* currentKeyStates)
 
 void ResourceManager::update(float dt)
 {
-	//Update all objects
+	//Update objects
 	for (unsigned int i = 0; i < _objects.size(); ++i)
 		_objects[i]->update(dt);
-	//Remove all dead objects
+	//Remove dead objects
 	for (unsigned int i = 0; i < _objects.size(); ++i)
 		if (_objects[i]->isDead())
 		{

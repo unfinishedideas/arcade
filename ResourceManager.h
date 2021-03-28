@@ -10,6 +10,7 @@ public:
 	ResourceManager();
 	~ResourceManager();
 	void add(std::string objName);
+	void add(VisibleObject* obj);
 	void load(Texture * text);
 	void processInput(const Uint8* currentKeyStates);
 	void update(float dt);
