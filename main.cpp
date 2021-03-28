@@ -23,15 +23,17 @@ int main(int argc, char* args[])
 	init(window, renderer);
 
 	Texture test(renderer);
-	std::string path = "test.png";
+	std::string path = "assets/sprites.png";
 	test.load(path);
 	
-	Player * joe = new Player;
+	//Player * joe = new Player;
 
 	
 	ResourceManager manager;
-	manager.add(joe);
 	manager.load(&test);
+	manager.add("player");
+	
+	bool addNew = true;
 	// <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY <== <== <== DELETE THIS EVENTUALLY 
 	//While application is running
 	int prevTime = SDL_GetTicks();
@@ -60,9 +62,9 @@ int main(int argc, char* args[])
 		int t = currTime - prevTime;
 	
 		manager.update(float(t));
-
+	
 		prevTime = currTime;
-		int sleepTime = millisecondsPerFrame-t; //if millise
+		int sleepTime = millisecondsPerFrame-t; //cap framerate
 		if (sleepTime > 0)
 			SDL_Delay(sleepTime);
 

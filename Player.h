@@ -17,5 +17,5 @@ private:
 	float posX, posY;
 	float velX, velY;
 	bool _isLoaded;
-	
+	float frameTime;
 };

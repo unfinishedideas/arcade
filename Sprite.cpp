@@ -76,3 +76,8 @@ void Sprite::render()
 		return;
 	_texture->render(posX, posY, &_textureRect, _zoom,_angle, NULL, _flip);
 }
+
+SDL_Rect Sprite::getTextureRect()
+{
+	return _textureRect;
+}

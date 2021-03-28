@@ -7,6 +7,7 @@ Player::Player() : VisibleObject("player")
 	velX = 0.f;
 	velY = 0.f;
 	_isLoaded = false;
+    frameTime = 0.f;
 }
 
 Player::~Player()
@@ -17,7 +18,7 @@ Player::~Player()
 void Player::load(Texture* text)
 {
 	_sprite.setTexture(text);
-	_sprite.setTextureRect(SDL_Rect{ 0,0,50,50 });
+	_sprite.setTextureRect(SDL_Rect{ 0,0,140,140 });
 	_sprite.setPosition(posX, posY);
 	_isLoaded = true;
 }
@@ -60,5 +61,14 @@ void Player::update(float dt)
         _sprite.setPosition(posX, posY);
         velX = 0;
         velY = 0;
-       
+        frameTime = frameTime + dt;
+        if (frameTime > 100)
+        {
+            SDL_Rect rect = _sprite.getTextureRect();
+            rect.x += 140;
+            if (rect.x > 140 * 7)
+                rect.x = 0;
+            _sprite.setTextureRect(rect);
+            frameTime = 0;
+        }
 }

@@ -2,7 +2,8 @@
 
 ResourceManager::ResourceManager()
 {
-
+	_isLoaded = false;
+	_texture = NULL;
 }
 
 ResourceManager::~ResourceManager()
@@ -15,15 +16,22 @@ ResourceManager::~ResourceManager()
 	}
 }
 
-void ResourceManager::add(VisibleObject* vis)
+void ResourceManager::add(std::string objName)
 {
-	_objects.push_back(vis);
+	if (!_isLoaded)
+		return;
+	if (objName == "player")
+	{
+		VisibleObject* obj = new Player;
+		obj->load(_texture);
+		_objects.push_back(obj);
+	}
 }
 
 void ResourceManager::load(Texture * text)
 {
-	for (unsigned int i = 0; i < _objects.size(); ++i)
-		_objects[i]->load(text);
+	_texture = text;
+	_isLoaded = true;
 }
 
 void ResourceManager::processInput(const Uint8* currentKeyStates)

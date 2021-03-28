@@ -16,7 +16,7 @@ public:
 	double getAngle();
 	double getZoom();
 	SDL_RendererFlip getFlip();
-
+	SDL_Rect getTextureRect();
 	void render();
 private:
 	Texture * _texture;
