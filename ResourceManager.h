@@ -2,7 +2,7 @@
 #include "VisibleObject.h"
 #include "Player.h"
 #include <vector>
-
+#include <algorithm>
 
 class ResourceManager
 {

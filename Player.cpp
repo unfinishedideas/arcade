@@ -12,7 +12,7 @@ Player::Player() : VisibleObject("player")
 
 Player::~Player()
 {
-    
+  
 }
 
 void Player::load(Texture* text)
@@ -72,4 +72,6 @@ void Player::update(float dt)
             _sprite.setTextureRect(rect);
             frameTime = 0;
         }
+      // if (posX > 500)
+        //    this->setDead();
 }

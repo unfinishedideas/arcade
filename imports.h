@@ -17,3 +17,6 @@ const int SCREEN_HEIGHT = 600;
 // Classes ---------------------|
 #include "Texture.h"
 
+#define WITH_SDL2
+#include "soloud.h"
+#include "soloud_wav.h"

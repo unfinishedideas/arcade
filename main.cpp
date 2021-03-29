@@ -33,9 +33,16 @@ int main(int argc, char* args[])
 	manager.load(&texture);
 	manager.add("player");
 	
+//	SoLoud::Soloud * soloud = new SoLoud::Soloud;
+//	SoLoud::Wav * sample = new SoLoud::Wav;
+
+//	soloud->init();
+
+//	sample->load("assets/sound.wav");
+//	soloud->play(*sample);
 	
 	
-	//While application is running
+	//While application is running]
 	int prevTime = SDL_GetTicks();
 	while (!quit)
 	{
@@ -77,7 +84,8 @@ int main(int argc, char* args[])
 
 	// Deallocate SDL
 	clean_up(window, renderer);
-
+//	delete sample;
+//	delete soloud;
 	return 0;
 }
 
