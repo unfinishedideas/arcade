@@ -14,7 +14,12 @@ ResourceManager::~ResourceManager()
 		delete _objects[i];
 		_objects[i] = NULL;
 	}*/
-	std::for_each(_objects.begin(), _objects.end(), [](VisibleObject* obj) {delete obj; obj = NULL; });
+	int i = 1;
+	std::for_each(_objects.begin(), _objects.end(), [i](VisibleObject* obj) mutable {
+
+		std::cout << i << std::endl;
+		++i;
+		delete obj; obj = NULL;  });
 }
 
 void ResourceManager::add(std::string objName)

@@ -75,3 +75,9 @@ void Player::update(float dt)
       // if (posX > 500)
         //    this->setDead();
 }
+
+void Player::setPos(float x, float y)
+{
+    posX = x;
+    posY = y;
+}

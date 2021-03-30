@@ -2,6 +2,7 @@
 #include "Sprite.h"
 #include "Player.h"
 #include "ResourceManager.h"
+#include <stdlib.h>
 
 const float FPS = 60; //frames per second
 const int millisecondsPerFrame = int(1000.f / FPS);
@@ -31,8 +32,18 @@ int main(int argc, char* args[])
 	
 	ResourceManager manager;
 	manager.load(&texture);
-	manager.add("player");
+	//manager.add("player");
 	
+	const int N = 100;
+	for (int i = 0; i < N; ++i)
+	{
+		Player* obj = new Player;
+		obj->load(&texture);
+		obj->setPos(float(rand() % SCREEN_WIDTH), float(rand() % SCREEN_HEIGHT));
+
+		manager.add(obj);
+	}
+
 //	SoLoud::Soloud * soloud = new SoLoud::Soloud;
 //	SoLoud::Wav * sample = new SoLoud::Wav;
 

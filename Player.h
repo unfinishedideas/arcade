@@ -12,6 +12,7 @@ public:
 	void update(float dt);
 	void load(Texture* text);
 	void render();
+	void setPos(float x, float y);
 private:
 	Sprite _sprite;
 	float posX, posY;
