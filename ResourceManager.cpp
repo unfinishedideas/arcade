@@ -19,6 +19,9 @@ ResourceManager::~ResourceManager()
 
 		
 		delete obj; obj = NULL;  });
+
+	delete _texture;
+	_texture = NULL;
 }
 
 void ResourceManager::add(std::string objName)
@@ -35,13 +38,20 @@ void ResourceManager::add(std::string objName)
 
 void ResourceManager::add(VisibleObject* obj)
 {
+	obj->load(_texture);
 	_objects.push_back(obj);
 }
 
-void ResourceManager::load(Texture * text)
+void ResourceManager::load(std::string texturePath, SDL_Renderer * renderer)
 {
-	_texture = text;
 	_isLoaded = true;
+	_texture = new Texture(renderer);
+	if (!_texture->load(texturePath))
+	{
+		std::cout << "Failed to load texture!\n";
+		_isLoaded = false;
+	}
+	
 }
 
 void ResourceManager::processInput(const Uint8* currentKeyStates)

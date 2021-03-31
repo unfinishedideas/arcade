@@ -1,5 +1,7 @@
 #pragma once
 #include "imports.h"
+#include <string>
+#include <iostream>
 
 class Texture
 {
