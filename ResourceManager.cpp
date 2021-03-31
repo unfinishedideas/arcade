@@ -14,11 +14,10 @@ ResourceManager::~ResourceManager()
 		delete _objects[i];
 		_objects[i] = NULL;
 	}*/
-	int i = 1;
-	std::for_each(_objects.begin(), _objects.end(), [i](VisibleObject* obj) mutable {
+	//int i = 1;
+	std::for_each(_objects.begin(), _objects.end(), [](VisibleObject* obj)  {
 
-		std::cout << i << std::endl;
-		++i;
+		
 		delete obj; obj = NULL;  });
 }
 
@@ -72,13 +71,13 @@ void ResourceManager::update(float dt)
 	
 	_objects.erase(std::remove_if(_objects.begin(),
 		_objects.end(),
-		[](VisibleObject* x) {
-			if (x->isDead())
+		[](VisibleObject* obj) {
+			if (obj->isDead())
 			{
-				delete x;
-				x = NULL;
+				delete obj;
+				obj = NULL;
 			}
-			return x == NULL; }), _objects.end());
+			return obj == NULL; }), _objects.end());
 }
 
 void ResourceManager::render()
