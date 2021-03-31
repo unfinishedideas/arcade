@@ -19,8 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="core.h" />
+    <ClInclude Include="Enemy.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="imports.h" />
+    <ClInclude Include="Mob.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="Sprite.h" />
@@ -28,6 +31,8 @@
     <ClInclude Include="VisibleObject.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="core.cpp" />
+    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />

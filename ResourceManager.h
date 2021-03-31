@@ -2,6 +2,7 @@
 #include "VisibleObject.h"
 #include "Texture.h"
 #include "Player.h"
+#include "Enemy.h"
 #include <vector>
 #include <algorithm>
 

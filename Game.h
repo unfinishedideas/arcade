@@ -1,7 +1,7 @@
 #pragma once
 #include "ResourceManager.h"
 
-const float FPS = 60;
+const float FPS = 120;
 const int milliSecondsPerFrame = int(1000.f / FPS);
 
 const std::string texturePath = "assets/sprites.png";
