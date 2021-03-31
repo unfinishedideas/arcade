@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Texture.h"
+#include "core.h"
 
 class Sprite
 {
@@ -9,7 +10,7 @@ public:
 	~Sprite();
 	void setTexture(Texture *texture);
 	void setTextureRect(SDL_Rect rect);
-	void setPosition(float x, float y);
+	void setPosition(floatVec pos);
 	void setAngle(double angle);
 	void setZoom(double zoom);
 	void setFlip(SDL_RendererFlip flip);

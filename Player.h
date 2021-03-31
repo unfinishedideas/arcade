@@ -3,6 +3,7 @@
 #include "Sprite.h"
 
 
+
 class Player : public VisibleObject
 {
 public:
@@ -12,11 +13,11 @@ public:
 	void update(float dt);
 	void load(Texture* text);
 	void render();
-	void setPos(float x, float y);
+	void setPos(floatVec _pos);
 private:
 	Sprite _sprite;
-	float posX, posY;
-	float velX, velY;
+	floatVec pos;
+	floatVec vel;
 	bool _isLoaded;
 	float frameTime;
 };

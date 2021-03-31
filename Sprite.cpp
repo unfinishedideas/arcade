@@ -38,10 +38,10 @@ void Sprite::setTextureRect(SDL_Rect rect)
 	_textureRect = rect;
 }
 
-void Sprite::setPosition(float x, float y)
+void Sprite::setPosition(floatVec pos)
 {
-	posX = int(x);
-	posY = int(y);
+	posX = int(pos.x);
+	posY = int(pos.y);
 }
 
 void Sprite::setAngle(double angle)

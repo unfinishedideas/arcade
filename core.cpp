@@ -29,6 +29,12 @@ floatVec floatVec::operator+(const floatVec& obj)
 	return vec;
 }
 
+float floatVec::operator*(const floatVec& obj)
+{
+	return this->x * obj.x + this->y * obj.y;
+}
+
+
 floatVec operator*(const float c, const floatVec& obj)
 {
 	floatVec vec;
@@ -45,7 +51,21 @@ floatVec operator*(const floatVec & obj, const float c)
 	vec.y = c * obj.y;
 	return vec;
 }
-float floatVec::operator*(const floatVec&obj)
+
+
+
+floatVec operator/(const floatVec& obj, const float c)
 {
-	return this->x * obj.x + this->y * obj.y;
+	floatVec vec;
+	if (c == 0)
+		return vec;
+	vec.x = obj.x/c;
+	vec.y = obj.y/c;
+	return vec;
+}
+
+
+float norm(const floatVec& obj)
+{
+	return float(sqrt(obj.x * obj.x + obj.y * obj.y));
 }

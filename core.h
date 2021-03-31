@@ -1,4 +1,5 @@
 #pragma once
+#include <cmath>
 
 //floatVec creates functionality for 2-dimensional vectors of floats.
 struct floatVec {
@@ -14,3 +15,6 @@ struct floatVec {
 
 floatVec operator*(const float c, const floatVec& obj); //left scalar mult
 floatVec operator*(const floatVec& obj, const float c); //right scalar mult
+floatVec operator/(const floatVec& obj, const float c); //right scalar mult
+
+float norm(const floatVec& obj); //euclidean norm
