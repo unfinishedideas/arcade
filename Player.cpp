@@ -14,10 +14,11 @@ Player::~Player()
 
 void Player::load(Texture* text)
 {
-	_sprite.setTexture(text);
+   // pos = floatVec(130.f, 50.f);
+    _sprite.setTexture(text);
 	_sprite.setTextureRect(SDL_Rect{ 0,0,95,160 });
 	_sprite.setPosition(pos);
-    _sprite.setColor(255,255,0);
+    _sprite.setColor(0,255,0);
 	_isLoaded = true;
 }
 

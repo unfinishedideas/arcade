@@ -117,12 +117,18 @@ void Game::gameLoop()
 			SDL_SetRenderDrawColor(renderer, 0x0, 0x0, 0x0, 0xff);
 			SDL_RenderClear(renderer);
 			const Uint8* currentKeyStates = SDL_GetKeyboardState(NULL);
-		
+			
+			if (currentKeyStates[SDL_SCANCODE_ESCAPE])
+				quit = true;
+
 			manager->processInput(currentKeyStates);
 	
 			int currTime = SDL_GetTicks();
-			if (currTime - prevTime < 0) //if time overflows, continue to next iteration of loop
+			if (currTime - prevTime < 0)
+			{								//if time overflows, continue to next iteration of loop
+				prevTime = currTime;
 				continue;
+			}
 			int t = currTime - prevTime;
 		
 			manager->update(float(t));

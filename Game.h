@@ -1,6 +1,10 @@
 #pragma once
 #include "ResourceManager.h"
 
+const int SCREEN_WIDTH = 1600;
+const int SCREEN_HEIGHT = 800;
+
+
 const float FPS = 60;
 const int milliSecondsPerFrame = int(1000.f / FPS);
 
