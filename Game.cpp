@@ -121,12 +121,12 @@ void Game::gameLoop()
 			manager->processInput(currentKeyStates);
 	
 			int currTime = SDL_GetTicks();
-			if (currTime - prevTime < 0) //if time overflows, continue
+			if (currTime - prevTime < 0) //if time overflows, continue to next iteration of loop
 				continue;
 			int t = currTime - prevTime;
 		
 			manager->update(float(t));
-		
+			
 			prevTime = currTime;
 			int sleepTime = milliSecondsPerFrame-t; //cap framerate
 			if (sleepTime > 0)
